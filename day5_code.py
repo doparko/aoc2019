@@ -16,6 +16,7 @@ rules = {'1110':'f,s,st = clist[index+1],clist[index+2],index+3','1100':'s,st = 
 
 # function takes in code and decides what to do
 def whatdo(clist,index,rule):
+    #rules = {'1110':'f,s,st = clist[index+1],clist[index+2],index+3','1100':'s,st = clist[index+2],index+3','1010':'f,st = clist[index+1],index+3','1000':'st = index+3','110':'f,s = clist[index+1],clist[index+2]','100':'s = clist[index+2]','10':'f = clist[index+1]'}
     n = len(str(clist[index]))
     # f is first, s is second, and st is store
     #debug
@@ -38,14 +39,14 @@ def whatdo(clist,index,rule):
         pass
     if n > 1:
         param = opcdstr[:-1]
-        exec(rule[param])
+        exec(rules[param])
         #debug
-        print(rule[param])
+        print(rules[param])
         print(f)
     if opcdstr[-1] == '1':
         clist[st] = f + s
         if n > 1:
-            print('f should be',rule[param],'...',clist[index+1],', this is what f is:',f)
+            print('f should be',rules[param],'...',clist[index+1],', this is what f is:',f)
     else:
         clist[st] = f * s
     index += 4
