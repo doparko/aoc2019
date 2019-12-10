@@ -66,6 +66,9 @@ while indat[itt] != 99:
     elif indat[itt] == 104:
         print(indat[itt+1])
         itt += 2
+    elif indat[itt] == 5:
+        if indat[itt+1] != 0:
+            itt = indat[itt+2]
     else:
         #rules = {'1110':'f,s,st = clist[index+1],clist[index+2],index+3','1100':'s,st = clist[index+2],index+3','1010':'f,st = clist[index+1],index+3','1000':'st = index+3','110':'f,s = clist[index+1],clist[index+2]','100':'s = clist[index+2]','10':'f = clist[index+1]'}
         n = len(str(indat[itt]))
